@@ -9,13 +9,21 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+
 import { Camera } from '@ionic-native/camera';
+import {NewRecipePage} from "../pages/newRecipe/newRecipe";
+import {ProfilePage} from "../pages/profile/profile";
+import {SettingsPage} from "../pages/settings/settings";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ListPage,
+    NewRecipePage,
+    ProfilePage,
+    SettingsPage
   ],
   imports: [
     BrowserModule,
@@ -25,13 +33,17 @@ import { Camera } from '@ionic-native/camera';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    NewRecipePage,
+    ProfilePage,
+    SettingsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     Camera,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    BarcodeScanner
   ]
 })
 export class AppModule {}

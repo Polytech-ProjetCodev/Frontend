@@ -11,5 +11,12 @@
   <h3>Create a new recipe</h3>
 
 
-  <button ion-button>Create new recipe</button>
+  <button ion-button (click)="scanBarcode()">Scan barcode</button>
+
+  <div *ngIf="results">
+    <p>{{results.text}}</p>
+    <p>{{results.format}}</p>
+    <p>{{results.cancelled}}</p>
+
+  </div>
 </ion-content>
