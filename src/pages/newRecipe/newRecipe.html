@@ -12,12 +12,12 @@
 
 
   <button ion-button (click)="scanBarcode()">Scan barcode</button>
-
-  <div *ngFor="let result of results">
-    <div *ngIf="result">
-      <p>{{result.text}}</p>
-      <p>{{result.format}}</p>
-      <p>{{result.cancelled}}</p>
-    </div>
-  </div>
+  <p>{{ resultsArray | json }}</p>
+  <!-- <p>{{ results | json }}</p>-->
+   <!--
+     <div *ngFor="let result of resultsArray">
+       <div *ngIf="result">
+         <p>{{result}}</p>
+       </div>
+   </div>-->
 </ion-content>
