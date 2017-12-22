@@ -10,8 +10,6 @@
 <ion-content padding>
   <h3>Create a new recipe</h3>
 
-
-  <button ion-button (click)="scanBarcode()">Scan barcode</button>
   <p>{{ resultsArray | json }}</p>
   <!-- <p>{{ results | json }}</p>-->
    <!--
@@ -20,4 +18,11 @@
          <p>{{result}}</p>
        </div>
    </div>-->
+  <recipe-card></recipe-card>
+
+
+  <ion-fab bottom right >
+    <button ion-fab (click)="scanBarcode()"> <ion-icon name="barcode"></ion-icon> </button>
+  </ion-fab>
+
 </ion-content>

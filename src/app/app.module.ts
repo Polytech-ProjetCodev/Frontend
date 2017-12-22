@@ -15,6 +15,7 @@ import { Camera } from '@ionic-native/camera';
 import {NewRecipePage} from "../pages/newRecipe/newRecipe";
 import {ProfilePage} from "../pages/profile/profile";
 import {SettingsPage} from "../pages/settings/settings";
+import {RecipeCard} from "../pages/card/card";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {SettingsPage} from "../pages/settings/settings";
     ListPage,
     NewRecipePage,
     ProfilePage,
-    SettingsPage
+    SettingsPage,
+    RecipeCard
   ],
   imports: [
     BrowserModule,

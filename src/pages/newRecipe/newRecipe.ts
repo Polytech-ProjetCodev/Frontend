@@ -21,9 +21,7 @@ export class NewRecipePage {
   async scanBarcode(){
 
     const resultBarcode = await this.barcode.scan();
-    //this.results = resultBarcode;
     const barcodeItem = resultBarcode;
     this.resultsArray.push(barcodeItem.text);
   }
-
 }
