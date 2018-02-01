@@ -18,9 +18,7 @@ export class RecipeComponent {
 
   constructor() {
     console.log('Hello RecipeComponent Component');
-    this.recipe = new RecipeModel("MyRecipe", false);
-    this.recipe.name = 'Recipe name';
-    this.recipe.favorite = false;
+    this.recipe = new RecipeModel("New Recipe", true);
     this.recipe.components = [];
     this.recipe.components.push((new ComponentModel("66245777675", "12", "1")));
     this.recipe.components.push((new ComponentModel("12", "229345", "1")));

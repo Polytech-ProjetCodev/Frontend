@@ -6,5 +6,12 @@
   <app-recipe-component></app-recipe-component>
 </div>
 
-
+<ion-item>
+  <ion-label color="primary" fixed>Name this recipe</ion-label>
+  <ion-input type="Text Input" placeholder="Name this recipe" [(ngModel)]="recipe.name"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label color="primary" fixed>Favorite</ion-label>
+  <ion-toggle [(ngModel)]="recipe.favorite"></ion-toggle>
+</ion-item>
 <p>END OF RECIPE COMPONENT</p>
