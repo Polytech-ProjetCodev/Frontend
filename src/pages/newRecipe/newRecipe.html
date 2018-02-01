@@ -11,14 +11,13 @@
   <h3>Create a new recipe</h3>
 
   <p>{{ resultsArray | json }}</p>
-  <!-- <p>{{ results | json }}</p>-->
-   <!--
+
      <div *ngFor="let result of resultsArray">
        <div *ngIf="result">
          <p>{{result}}</p>
+         <app-card></app-card>
        </div>
-   </div>-->
-  <recipe-card></recipe-card>
+     </div>
 
 
   <ion-fab bottom right >

@@ -1,0 +1,113 @@
+{ 
+	[
+		{
+			"id":"009800892204",
+			"product_name":"Nutella",
+			"allergens":"hazelnuts, milk, milk, soja",
+			"image_url":"https://static.openfoodfacts.org/images/products/000/980/089/2204/front_en.3.400.jpg",
+			"nutriments":[
+				"proteins":"5.41",
+				"energy_serving":"837",
+				"fiber_value":"5.41",
+				"sugars_value": "21",
+				"salt":"0.0381",
+				"energy-from-fat_100g":"1240",
+				"fat_value":"12",
+				"saturated-fat":"4",
+
+			]
+			
+		},
+		{
+		},
+	]
+
+}
+
+
+
+
+energy-from-fat_100g	"1240"
+sugars	"21"
+iron_100g	0.00195
+fat_value	"12"
+saturated-fat	"4"
+fiber_serving	"1"
+proteins_100g	5.41
+carbohydrates_value	"21"
+iron_unit	"% DV"
+nutrition-score-uk_100g	23
+calcium_value	"4"
+trans-fat_serving	"0"
+energy-from-fat_serving	"460"
+salt_value	"0.0381"
+sodium_value	"15"
+saturated-fat_value	"4"
+vitamin-a_100g	"0"
+sodium_unit	"mg"
+sugars_unit	"g"
+trans-fat_unit	"g"
+energy_unit	"kcal"
+vitamin-c_serving	"0"
+fiber_unit	"g"
+trans-fat_value	"0"
+sugars_100g	56.8
+trans-fat	"0"
+iron_serving	0.00072
+nutrition-score-fr_100g	23
+vitamin-c_100g	"0"
+calcium_unit	"% DV"
+proteins	"2"
+iron	0.00072
+cholesterol_unit	"mg"
+sugars_serving	"21"
+vitamin-a_value	"0"
+sugars_value	"21"
+salt_serving	0.0381
+fat_unit	"g"
+cholesterol_100g	"0"
+energy-from-fat_value	"110"
+carbohydrates	"21"
+carbohydrates_100g	56.8
+energy_serving	"837"
+salt_100g	0.103
+sodium_serving	0.015
+calcium_100g	0.108
+vitamin-a_unit	"% DV"
+nutrition-score-uk	23
+sodium	0.015
+iron_value	"4"
+trans-fat_100g	"0"
+vitamin-c_value	"0"
+proteins_value	"2"
+salt_unit	"g"
+proteins_serving	"2"
+calcium	0.04
+energy-from-fat_unit	"kcal"
+energy_100g	"2260"
+fat	"12"
+cholesterol_value	"0"
+vitamin-c_unit	"% DV"
+cholesterol_serving	"0"
+cholesterol	"0"
+fiber_value	"1"
+fiber_100g	2.7
+saturated-fat_unit	"g"
+vitamin-c	"0"
+carbohydrates_unit	"g"
+nutrition-score-fr	23
+calcium_serving	0.04
+vitamin-a_serving	"0"
+saturated-fat_serving	"4"
+proteins_unit	"g"
+energy	"837"
+salt	0.0381
+sodium_100g	0.0405
+energy-from-fat	"460"
+fat_100g	32.4
+energy_value	"200"
+fat_serving	"12"
+fiber	"1"
+vitamin-a	"0"
+carbohydrates_serving	"21"
+saturated-fat_100g	10.8

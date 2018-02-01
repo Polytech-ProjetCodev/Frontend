@@ -15,7 +15,11 @@ import { Camera } from '@ionic-native/camera';
 import {NewRecipePage} from "../pages/newRecipe/newRecipe";
 import {ProfilePage} from "../pages/profile/profile";
 import {SettingsPage} from "../pages/settings/settings";
-import {RecipeCard} from "../pages/card/card";
+import { RecipeComponentProvider } from '../providers/component/component';
+
+import { HttpClientModule } from '@angular/common/http';
+import {AboutPage} from "../pages/about/about";
+import {CardComponent} from "../components/card/card";
 
 @NgModule({
   declarations: [
@@ -25,11 +29,13 @@ import {RecipeCard} from "../pages/card/card";
     NewRecipePage,
     ProfilePage,
     SettingsPage,
-    RecipeCard
+    AboutPage,
+    CardComponent
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    HttpClientModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -38,14 +44,17 @@ import {RecipeCard} from "../pages/card/card";
     ListPage,
     NewRecipePage,
     ProfilePage,
-    SettingsPage
+    SettingsPage,
+    AboutPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     Camera,
+    RecipeComponentProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    BarcodeScanner
+    BarcodeScanner,
+    RecipeComponentProvider
   ]
 })
 export class AppModule {}
