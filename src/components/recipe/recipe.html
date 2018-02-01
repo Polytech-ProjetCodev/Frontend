@@ -1,4 +1,10 @@
-<!-- Generated template for the RecipeComponent component -->
-<div>
-  {{text}}
+<h1>Recipe: {{ recipe.name }}</h1>
+
+<div *ngFor="let item of components">
+  {{ item.name }}
+  {{ item.description }}
+  <app-recipe-component></app-recipe-component>
 </div>
+
+
+<p>END OF RECIPE COMPONENT</p>

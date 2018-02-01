@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
   selector: 'app-recipe-component',
   templateUrl: 'recipe-component.html'
 })
-export class RecipeComponent {
+export class RecipeComponentComponent {
 
   detail: string;
   name: string;
