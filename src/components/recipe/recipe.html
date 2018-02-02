@@ -1,17 +1,43 @@
-<h1>Recipe: {{ recipe.name }}</h1>
+<h1><span *ngIf="recipe.favorite"> <ion-icon name="star-outline" color="yellow"></ion-icon> </span>Recipe: {{ recipe.name }}</h1>
 
 <div *ngFor="let item of components">
+
+  <ion-icon name="star"></ion-icon>
   {{ item.name }}
   {{ item.description }}
   <app-recipe-component></app-recipe-component>
 </div>
 
+
+<p>{{ resultsArray | json }}</p>
+
+<!--<div *ngFor="let result of resultsArray">
+  <div *ngIf="result">
+    <p>{{result}}</p>
+    <app-card></app-card>
+  </div>
+</div>-->
+
+<div *ngFor="let component of recipe.components">
+    <p>{{component.ingredient_barcode}}</p>
+    <app-card
+      [ingredient]="component"
+      (cardDeleted)="onCardDeleted($event)"
+      ></app-card>
+</div>
+
 <ion-item>
   <ion-label color="primary" fixed>Name this recipe</ion-label>
-  <ion-input type="Text Input" placeholder="Name this recipe" [(ngModel)]="recipe.name"></ion-input>
+  <ion-input type="Text Input" placeholder="Name this recipe" maxlength="255" [(ngModel)]="recipe.name"></ion-input>
 </ion-item>
+
 <ion-item>
   <ion-label color="primary" fixed>Favorite</ion-label>
   <ion-toggle [(ngModel)]="recipe.favorite"></ion-toggle>
 </ion-item>
 <p>END OF RECIPE COMPONENT</p>
+
+
+<ion-fab bottom right>
+  <button ion-fab (click)="scanBarcode()"> <ion-icon name="barcode"></ion-icon> </button>
+</ion-fab>

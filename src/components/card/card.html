@@ -4,7 +4,7 @@
     <ion-avatar item-start>
       <img src="http://www.infocalories.fr/images/jambon-paris.jpg">
     </ion-avatar>
-    <h2>{{ rComponent.title }}</h2> ({{ rComponent.barcode }})
+    <h2>{{ rComponent.title }}</h2> ({{ ingredient.ingredient_barcode }})
   </ion-item>
 
 
@@ -33,7 +33,7 @@
       </button>
     </ion-col>
     <ion-col>
-      <button ion-button icon-left clear small  class="red">
+      <button ion-button icon-left clear small  class="red" (click)="onDeleteCard()">
         <ion-icon name="close"></ion-icon>
         <div>Delete</div>
       </button>

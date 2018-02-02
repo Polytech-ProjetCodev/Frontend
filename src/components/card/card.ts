@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 /**
  * Generated class for the CardComponent component.
@@ -12,6 +12,11 @@ import { Component } from '@angular/core';
 })
 export class CardComponent {
 
+  @Input() ingredient: {ingredient_barcode: string, user_quantity: string, recipe_id: string};
+
+  @Output() cardDeleted = new EventEmitter<{ingredient_barcode: string}>();
+
+
   text: string;
   rComponent: RecipeComponent;
 
@@ -19,6 +24,10 @@ export class CardComponent {
     console.log('Hello CardComponent Component');
     this.text = 'Hello World';
     this.rComponent = new RecipeComponent("Jambon de Paris","Un bon jambon de Paris des familles", "1ts", "1234");
+  }
+
+  onDeleteCard(){
+    this.cardDeleted.emit({ingredient_barcode: this.ingredient.ingredient_barcode})
   }
 
 }

@@ -11,18 +11,8 @@ import {RecipeComponentProvider} from "../../providers/component/component";
 })
 export class NewRecipePage {
 
-  options: BarcodeScannerOptions;
-  resultsArray: Array<string> = [];
-  //results: {};
 
-  constructor(private barcode: BarcodeScanner, public navCtrl: NavController) {
+  constructor(public navCtrl: NavController) {
 
-  }
-
-  async scanBarcode(){
-
-    const resultBarcode = await this.barcode.scan();
-    const barcodeItem = resultBarcode;
-    this.resultsArray.push(barcodeItem.text);
   }
 }

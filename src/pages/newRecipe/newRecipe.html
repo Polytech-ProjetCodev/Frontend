@@ -12,18 +12,9 @@
 
   <app-recipe></app-recipe>
 
-  <p>{{ resultsArray | json }}</p>
 
-     <div *ngFor="let result of resultsArray">
-       <div *ngIf="result">
-         <p>{{result}}</p>
-         <app-card></app-card>
-       </div>
-     </div>
-
-
-  <ion-fab bottom right >
+<!--  <ion-fab bottom right >
     <button ion-fab (click)="scanBarcode()"> <ion-icon name="barcode"></ion-icon> </button>
-  </ion-fab>
+  </ion-fab>-->
 
 </ion-content>
