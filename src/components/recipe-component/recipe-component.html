@@ -1,11 +1,12 @@
 <ion-card>
 
   <ion-item>
-    <ion-avatar item-start>
-      <img src="http://www.infocalories.fr/images/jambon-paris.jpg">
+    <ion-avatar item-start *ngIf="ingredient !== undefined">
+      <img  src="{{ingredient.image}}">
     </ion-avatar>
     <!--<h2>{{ component.title }}</h2> ({{ component.ingredient }})-->
   </ion-item>
+  {{ingredient | json}}
 
   <ion-card-content>
     <!--<p>{{ rComponent.description }}</p>-->
@@ -40,7 +41,7 @@
     <ion-col center text-center>
     </ion-col>
   </ion-row>
-  <div *ngIf="relatedIngredient !== undefined"> {{relatedIngredient.name}} </div>
+  <div *ngIf="ingredient !== undefined"> {{ingredient.image}} </div>
   <div *ngIf="err !== undefined"> {{err | json}} </div>
 </ion-card>
 <p>END OF CARD COMPONENT</p>

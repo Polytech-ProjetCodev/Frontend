@@ -14,7 +14,7 @@ import {CONFIG} from "../../config";
 export class IngredientProvider {
 
   constructor(public http: HttpClient) {
-    console.log('Hello IsbnProvider Provider');
+    console.log('Hello IngredientProvider Provider');
   }
 
   getIngredientByBarcode(barcode: string): Observable<IngredientModel> {

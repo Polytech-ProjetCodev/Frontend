@@ -20,6 +20,7 @@ export class RecipeComponentComponent {
 
   ingredient : IngredientModel;
   err;
+  continue = true;
 
   text: string;
 
@@ -37,13 +38,18 @@ export class RecipeComponentComponent {
    */
   ngAfterViewChecked() {
     console.log("BLOPPPPPP");
-    this.ingredientProvider.getIngredientByBarcode(this.component.ingredient).subscribe(
-      (ingredient)=> {
-        this.ingredient = ingredient;
-      }, (err) => {
-        this.err = err;
-      }
-    )
+
+    if (this.continue === true){
+      this.continue = false;
+      this.ingredientProvider.getIngredientByBarcode(this.component.ingredient).subscribe(
+        (ingredient)=> {
+          this.ingredient = ingredient;
+        }, (err) => {
+          this.err = err;
+        }
+      )
+    }
   }
+
 }
 
