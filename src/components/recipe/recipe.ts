@@ -25,7 +25,7 @@ export class RecipeComponent {
     console.log('Hello RecipeComponent Component');
     this.recipe = new RecipeModel("New Recipe", true);
     //this.recipe.components = [];
-    this.recipe.components = [new ComponentModel("009800892204", 100, "1cc", 1)];
+    this.recipe.components = [new ComponentModel("3222110003925", 100, "1cc", 1)];
   }
 
   /**

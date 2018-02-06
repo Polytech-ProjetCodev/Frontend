@@ -18,6 +18,7 @@ export class IngredientProvider {
   }
 
   getIngredientByBarcode(barcode: string): Observable<IngredientModel> {
+    console.log(CONFIG.api.url() + 'ingredient/' + barcode + ".json");
     return this.http.get<IngredientModel>(CONFIG.api.url() + 'ingredient/' + barcode + ".json");
   }
 

@@ -40,7 +40,8 @@
     <ion-col center text-center>
     </ion-col>
   </ion-row>
-
+  <div *ngIf="relatedIngredient !== undefined"> {{relatedIngredient.name}} </div>
+  <div *ngIf="err !== undefined"> {{err | json}} </div>
 </ion-card>
 <p>END OF CARD COMPONENT</p>
 

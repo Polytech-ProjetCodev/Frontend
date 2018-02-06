@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {IngredientModel} from "../../app/shared/ingredient.model";
+import {IngredientProvider} from "../../providers/ingredient/ingredient";
 
 /**
  * Generated class for the CardComponent component.
@@ -17,18 +18,32 @@ export class RecipeComponentComponent {
 
   @Output() cardDeleted = new EventEmitter<{ingredient: string}>();
 
-  relatedIngredient : IngredientModel;
-
+  ingredient : IngredientModel;
+  err;
 
   text: string;
 
-  constructor() {
+  constructor(private ingredientProvider: IngredientProvider) {
     console.log('Hello CardComponent Component');
     this.text = 'Hello World';
   }
 
   onDeleteCard(){
     this.cardDeleted.emit({ingredient: this.component.ingredient})
+  }
+
+  /**
+   * Call provider when view is rendered
+   */
+  ngAfterViewChecked() {
+    console.log("BLOPPPPPP");
+    this.ingredientProvider.getIngredientByBarcode(this.component.ingredient).subscribe(
+      (ingredient)=> {
+        this.ingredient = ingredient;
+      }, (err) => {
+        this.err = err;
+      }
+    )
   }
 }
 
