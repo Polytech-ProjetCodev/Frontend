@@ -17,8 +17,8 @@ export class IngredientProvider {
     console.log('Hello IsbnProvider Provider');
   }
 
-  getBookByIsbn(barcode: string): Observable<IngredientModel> {
-    return this.http.get<IngredientModel>(CONFIG.api.url() + 'ingredient/' + barcode);
+  getIngredientByBarcode(barcode: string): Observable<IngredientModel> {
+    return this.http.get<IngredientModel>(CONFIG.api.url() + 'ingredient/' + barcode + ".json");
   }
 
 }
