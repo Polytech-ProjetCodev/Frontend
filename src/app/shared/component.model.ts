@@ -1,11 +1,13 @@
 export class ComponentModel {
-  public ingredient_barcode: string;
-  public user_quantity: string;
-  public recipe_id: string;
+  public ingredient: string;
+  public quantity: number;
+  public front_quantity: string;
+  public recipe: number;
 
-  constructor(ingredient_barcode: string, user_quantity: string, recipe_id: string) {
-    this.ingredient_barcode = ingredient_barcode;
-    this.user_quantity = user_quantity;
-    this.recipe_id = recipe_id;
+  constructor(ingredient: string, quantity: number, front_quantity: string, recipe: number) {
+    this.ingredient = ingredient;
+    this.quantity = quantity;
+    this.front_quantity = front_quantity;
+    this.recipe = recipe;
   }
 }

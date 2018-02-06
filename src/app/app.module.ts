@@ -15,16 +15,14 @@ import { RecipeComponentProvider } from '../providers/component/component';
 
 import { HttpClientModule } from '@angular/common/http';
 import {AboutPage} from "../pages/about/about";
-import {CardComponent} from "../components/card/card";
-import {RecipeComponent} from "../components/recipe/recipe";
 import {RecipeComponentComponent} from "../components/recipe-component/recipe-component";
+import {RecipeComponent} from "../components/recipe/recipe";
 
 @NgModule({
   declarations: [
     MyApp,
     NewRecipePage,
     AboutPage,
-    CardComponent,
     RecipeComponent,
     RecipeComponentComponent
   ],

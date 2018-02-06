@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {IngredientModel} from "../../app/shared/ingredient.model";
 
 /**
- * Generated class for the RecipeComponent component.
+ * Generated class for the CardComponent component.
  *
  * See https://angular.io/api/core/Component for more info on Angular
  * Components.
@@ -12,16 +13,22 @@ import { Component } from '@angular/core';
 })
 export class RecipeComponentComponent {
 
-  detail: string;
-  name: string;
-  barcode: string;
-  quantity: string;
+  @Input() component: {ingredient: string, quantity: number, front_quantity: string, recipe: number};
+
+  @Output() cardDeleted = new EventEmitter<{ingredient: string}>();
+
+  relatedIngredient : IngredientModel;
+
+
+  text: string;
 
   constructor() {
-    console.log('Hello RecipeComponent Component');
-    this.detail = 'Component name';
-    this.detail = 'Component detail';
-    this.barcode = '01236589876543';
-    this.quantity = '2cc';
+    console.log('Hello CardComponent Component');
+    this.text = 'Hello World';
+  }
+
+  onDeleteCard(){
+    this.cardDeleted.emit({ingredient: this.component.ingredient})
   }
 }
+

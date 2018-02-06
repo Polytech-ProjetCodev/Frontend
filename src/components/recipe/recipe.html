@@ -1,11 +1,11 @@
-<h1><span *ngIf="recipe.favorite"> <ion-icon name="star-outline" color="yellow"></ion-icon> </span>Recipe: {{ recipe.name }}</h1>
+<h1><span *ngIf="recipe.favorite"> <ion-icon name="star-outline" color="yellow"></ion-icon>
+</span>New Recipe: {{ recipe.name }}</h1>
 
 <div *ngFor="let item of components">
 
   <ion-icon name="star"></ion-icon>
   {{ item.name }}
   {{ item.description }}
-  <app-recipe-component></app-recipe-component>
 </div>
 
 
@@ -14,16 +14,16 @@
 <!--<div *ngFor="let result of resultsArray">
   <div *ngIf="result">
     <p>{{result}}</p>
-    <app-card></app-card>
+    <app-recipe-component></app-recipe-component>
   </div>
 </div>-->
 
 <div *ngFor="let component of recipe.components">
-    <p>{{component.ingredient_barcode}}</p>
-    <app-card
-      [ingredient]="component"
+    <p>{{component.ingredient}}</p>
+    <app-recipe-component
+      [component]="component"
       (cardDeleted)="onCardDeleted($event)"
-      ></app-card>
+      ></app-recipe-component>
 </div>
 
 <ion-item>
@@ -35,6 +35,9 @@
   <ion-label color="primary" fixed>Favorite</ion-label>
   <ion-toggle [(ngModel)]="recipe.favorite"></ion-toggle>
 </ion-item>
+
+<button ion-button round>Submit recipe</button>
+
 <p>END OF RECIPE COMPONENT</p>
 
 

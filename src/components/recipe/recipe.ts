@@ -24,22 +24,23 @@ export class RecipeComponent {
   constructor(private barcode: BarcodeScanner) {
     console.log('Hello RecipeComponent Component');
     this.recipe = new RecipeModel("New Recipe", true);
-    this.recipe.components = [];
+    //this.recipe.components = [];
+    this.recipe.components = [new ComponentModel("009800892204", 100, "1cc", 1)];
   }
 
   /**
    * Delete component from list
    * @param {{ingredient_barcode: string}} cardData
    */
-  onCardDeleted(cardData: {ingredient_barcode: string}) {
-    this.recipe.components = this.recipe.components.filter(item => item.ingredient_barcode !== cardData.ingredient_barcode);
+  onCardDeleted(cardData: {ingredient: string}) {
+    this.recipe.components = this.recipe.components.filter(item => item.ingredient !== cardData.ingredient);
   }
 
   async scanBarcode(){
 
     const resultBarcode = await this.barcode.scan();
     const barcodeItem = resultBarcode;
-    this.recipe.components.push((new ComponentModel(barcodeItem.text, "12", "1")));
+    this.recipe.components.push((new ComponentModel(barcodeItem.text, 12, "1cs", 1)));
   }
 
 

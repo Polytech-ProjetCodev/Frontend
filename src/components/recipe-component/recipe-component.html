@@ -1,3 +1,46 @@
-<app-card></app-card>
-<p>END OF RECIPECOMPONENT COMPONENT</p>
+<ion-card>
+
+  <ion-item>
+    <ion-avatar item-start>
+      <img src="http://www.infocalories.fr/images/jambon-paris.jpg">
+    </ion-avatar>
+    <!--<h2>{{ component.title }}</h2> ({{ component.ingredient }})-->
+  </ion-item>
+
+  <ion-card-content>
+    <!--<p>{{ rComponent.description }}</p>-->
+  </ion-card-content>
+  <ion-item>
+    <ion-input placeholder="Quantity"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-select [(ngModel)]="gender">
+      <ion-option value="f">gram</ion-option>
+      <ion-option value="m">teaspoon (tsp) : 5 ml</ion-option>
+      <ion-option value="m">tablespoon  (tbsp) : 15 ml</ion-option>
+      <ion-option value="m">liter (L)</ion-option>
+      <ion-option value="m">centilitre (cL)</ion-option>
+      <ion-option value="m">milliliter (mL)</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-row>
+    <ion-col>
+      <button ion-button icon-left clear small>
+        <ion-icon name="eye"></ion-icon>
+        <div>View details</div>
+      </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button icon-left clear small  class="red" (click)="onDeleteCard()">
+        <ion-icon name="close"></ion-icon>
+        <div>Delete</div>
+      </button>
+    </ion-col>
+    <ion-col center text-center>
+    </ion-col>
+  </ion-row>
+
+</ion-card>
+<p>END OF CARD COMPONENT</p>
 
