@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {AboutPage} from "../pages/about/about";
 import {RecipeComponentComponent} from "../components/recipe-component/recipe-component";
 import {RecipeComponent} from "../components/recipe/recipe";
+import { IngredientProvider } from '../providers/ingredient/ingredient';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import {RecipeComponent} from "../components/recipe/recipe";
     RecipeComponentProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     BarcodeScanner,
-    RecipeComponentProvider
+    RecipeComponentProvider,
+    IngredientProvider
   ]
 })
 export class AppModule {}

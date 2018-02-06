@@ -1,5 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import {Observable} from "rxjs/Observable";
+import {IngredientModel} from "../../app/shared/ingredient.model";
+import {CONFIG} from "../../config";
 
 /*
   Generated class for the IngredientProvider provider.
@@ -11,7 +14,11 @@ import { Injectable } from '@angular/core';
 export class IngredientProvider {
 
   constructor(public http: HttpClient) {
-    console.log('Hello IngredientProvider Provider');
+    console.log('Hello IsbnProvider Provider');
+  }
+
+  getBookByIsbn(barcode: string): Observable<IngredientModel> {
+    return this.http.get<IngredientModel>(CONFIG.api.url() + 'ingredient/' + barcode);
   }
 
 }
