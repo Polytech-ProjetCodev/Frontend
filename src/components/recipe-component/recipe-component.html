@@ -4,9 +4,9 @@
     <ion-avatar item-start *ngIf="ingredient !== undefined">
       <img  src="{{ingredient.image}}">
     </ion-avatar>
-    <!--<h2>{{ component.title }}</h2> ({{ component.ingredient }})-->
+    <h2 *ngIf="ingredient !== undefined">{{ ingredient.name }}</h2>
   </ion-item>
-  {{ingredient | json}}
+  <!--{{ingredient | json}}-->
 
   <ion-card-content>
     <!--<p>{{ rComponent.description }}</p>-->
@@ -16,12 +16,12 @@
   </ion-item>
   <ion-item>
     <ion-select [(ngModel)]="gender">
-      <ion-option value="f">gram</ion-option>
-      <ion-option value="m">teaspoon (tsp) : 5 ml</ion-option>
-      <ion-option value="m">tablespoon  (tbsp) : 15 ml</ion-option>
-      <ion-option value="m">liter (L)</ion-option>
-      <ion-option value="m">centilitre (cL)</ion-option>
-      <ion-option value="m">milliliter (mL)</ion-option>
+      <ion-option value="g">gram</ion-option>
+      <ion-option value="tsp">teaspoon (tsp) : 5 ml</ion-option>
+      <ion-option value="tbsp">tablespoon  (tbsp) : 15 ml</ion-option>
+      <ion-option value="L">liter (L)</ion-option>
+      <ion-option value="cL">centilitre (cL)</ion-option>
+      <ion-option value="mL">milliliter (mL)</ion-option>
     </ion-select>
   </ion-item>
 
@@ -41,7 +41,6 @@
     <ion-col center text-center>
     </ion-col>
   </ion-row>
-  <div *ngIf="ingredient !== undefined"> {{ingredient.image}} </div>
   <div *ngIf="err !== undefined"> {{err | json}} </div>
 </ion-card>
 <p>END OF CARD COMPONENT</p>
