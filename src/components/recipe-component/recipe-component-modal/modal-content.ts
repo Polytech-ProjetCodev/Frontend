@@ -10,9 +10,9 @@ export class ModalContentPage {
   ingredient: IngredientModel;
 
   constructor(public platform: Platform, public params: NavParams, public viewCtrl: ViewController) {
-    console.log("YOLO");
     this.ingredient = this.params.get('ingredient');
   }
+
 
   dismiss() {
     this.viewCtrl.dismiss();
