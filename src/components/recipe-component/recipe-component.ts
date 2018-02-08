@@ -1,6 +1,8 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {IngredientModel} from "../../app/shared/ingredient.model";
 import {IngredientProvider} from "../../providers/ingredient/ingredient";
+import {ModalController} from "ionic-angular";
+import {ModalContentPage} from "./recipe-component-modal/modal-content";
 
 /**
  * Generated class for the CardComponent component.
@@ -24,7 +26,7 @@ export class RecipeComponentComponent {
 
   text: string;
 
-  constructor(private ingredientProvider: IngredientProvider) {
+  constructor(public modalCtrl: ModalController, private ingredientProvider: IngredientProvider) {
     console.log('Hello CardComponent Component');
     this.text = 'Hello World';
   }
@@ -49,6 +51,11 @@ export class RecipeComponentComponent {
         }
       )
     }
+  }
+
+  presentModal(referralIngredient: IngredientModel) {
+    let modal = this.modalCtrl.create(ModalContentPage, referralIngredient);
+    modal.present();
   }
 
 }

@@ -8,9 +8,6 @@
   {{ item.description }}
 </div>
 
-
-<p>{{ resultsArray | json }}</p>
-
 <!--<div *ngFor="let result of resultsArray">
   <div *ngIf="result">
     <p>{{result}}</p>
@@ -19,7 +16,6 @@
 </div>-->
 
 <div *ngFor="let component of recipe.components">
-    <p>{{component.ingredient}}</p>
     <app-recipe-component
       [component]="component"
       (cardDeleted)="onCardDeleted($event)"
@@ -37,9 +33,6 @@
 </ion-item>
 
 <button ion-button round>Submit recipe</button>
-
-<p>END OF RECIPE COMPONENT</p>
-
 
 <ion-fab bottom right>
   <button ion-fab (click)="scanBarcode()"> <ion-icon name="barcode"></ion-icon> </button>
