@@ -1,19 +1,21 @@
-<h1><span *ngIf="recipe.favorite"> <ion-icon name="star-outline" color="yellow"></ion-icon>
-</span>New Recipe: {{ recipe.name }}</h1>
+<ion-item>
+  <h1>
+    <a (click)=onStarClick()>
+      <span *ngIf="recipe.favorite"> <ion-icon name="ios-star" color="yellow-star"></ion-icon></span>
+      <span *ngIf="recipe.favorite === false"> <ion-icon name="ios-star-outline" color="yellow-star"></ion-icon></span>
+    </a>
+
+    {{ recipe.name }}
+  </h1>
+</ion-item>
 
 <div *ngFor="let item of components">
 
-  <ion-icon name="star"></ion-icon>
+  <ion-icon name="ion-ios-star"*ngIf="recipe.favorite === true"></ion-icon>
+  <ion-icon name="ion-ios-star-outline"*ngIf="recipe.favorite === false"></ion-icon>
   {{ item.name }}
   {{ item.description }}
 </div>
-
-<!--<div *ngFor="let result of resultsArray">
-  <div *ngIf="result">
-    <p>{{result}}</p>
-    <app-recipe-component></app-recipe-component>
-  </div>
-</div>-->
 
 <div *ngFor="let component of recipe.components">
     <app-recipe-component
@@ -25,11 +27,6 @@
 <ion-item>
   <ion-label color="primary" fixed>Name this recipe</ion-label>
   <ion-input type="Text Input" placeholder="Name this recipe" maxlength="255" [(ngModel)]="recipe.name"></ion-input>
-</ion-item>
-
-<ion-item>
-  <ion-label color="primary" fixed>Favorite</ion-label>
-  <ion-toggle [(ngModel)]="recipe.favorite"></ion-toggle>
 </ion-item>
 
 <button ion-button round>Submit recipe</button>

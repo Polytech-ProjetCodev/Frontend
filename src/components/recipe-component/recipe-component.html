@@ -12,10 +12,9 @@
     <!--<p>{{ rComponent.description }}</p>-->
   </ion-card-content>
   <ion-item>
-    <ion-input placeholder="Quantity"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-select [(ngModel)]="gender">
+    <ion-label color="primary" fixed>Quantity</ion-label>
+    <ion-input placeholder="Choose Qty"></ion-input>
+    <ion-select placeholder="Choose Unit" [(ngModel)]="gender">
       <ion-option value="g">gram</ion-option>
       <ion-option value="tsp">teaspoon (tsp) : 5 ml</ion-option>
       <ion-option value="tbsp">tablespoon  (tbsp) : 15 ml</ion-option>
@@ -23,11 +22,12 @@
       <ion-option value="cL">centilitre (cL)</ion-option>
       <ion-option value="mL">milliliter (mL)</ion-option>
     </ion-select>
+
   </ion-item>
 
   <ion-row>
     <ion-col>
-      <button ion-button icon-left clear small *ngIf="ingredient !== undefined" (click)="presentModal({'ingredient' : ingredient})">
+      <button [disabled]="ingredient === undefined" ion-button icon-left clear small *ngIf="ingredient !== undefined" (click)="presentModal({'ingredient' : ingredient})">
         <ion-icon name="eye"></ion-icon>
         <div>View details</div>
       </button>

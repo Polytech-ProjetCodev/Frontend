@@ -23,7 +23,7 @@ export class RecipeComponent {
 
   constructor(private barcode: BarcodeScanner) {
     console.log('Hello RecipeComponent Component');
-    this.recipe = new RecipeModel("New Recipe", true);
+    this.recipe = new RecipeModel("My New Recipe", true);
     //this.recipe.components = [];
     this.recipe.components = [new ComponentModel("3222110003925", 100, "1cc", 1)];
   }
@@ -40,8 +40,12 @@ export class RecipeComponent {
 
     const resultBarcode = await this.barcode.scan();
     const barcodeItem = resultBarcode;
-    this.recipe.components.push((new ComponentModel(barcodeItem.text, 12, "1cs", 1)));
+    if (barcodeItem.text !== ""){
+      this.recipe.components.push((new ComponentModel(barcodeItem.text, 12, "1cs", 1)));
+    }
   }
 
-
+  onStarClick() {
+    this.recipe.favorite = !this.recipe.favorite;
+  }
 }
