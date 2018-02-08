@@ -37,8 +37,12 @@ export class RecipeComponent {
   }
 
   async scanBarcode(){
+    this.options = {
+      showTorchButton: true,
+      showFlipCameraButton: true
+    };
 
-    const resultBarcode = await this.barcode.scan();
+    const resultBarcode = await this.barcode.scan(this.options);
     const barcodeItem = resultBarcode;
     if (barcodeItem.text !== ""){
       this.recipe.components.push((new ComponentModel(barcodeItem.text, 12, "1cs", 1)));
