@@ -27,6 +27,10 @@ export class RecipeComponent {
   backRecipe: RecipeModel;
   recipeError;
   componentError;
+  recipeNutritionError;
+  recipeSubmitted: boolean = false;
+  allComponentsCommitted: boolean = false;
+  componentsCount: number = 0;
 
   constructor(private barcode: BarcodeScanner, private recipeProvider: RecipeProvider, private componentProvider: RecipeComponentProvider) {
     console.log('Hello RecipeComponent Component');
@@ -61,37 +65,62 @@ export class RecipeComponent {
   }
 
   onSubmitRecipe() {
-    if (this.continue === true){
-      this.continue = false;
+
+    if (this.recipeSubmitted !== true){
+      this.recipeSubmitted = true;
       this.recipeProvider.postRecipe(this.recipe).subscribe(
         (response) => {
           console.log(response);
           this.recipe.id = response.id;
           console.log(this.recipe);
-
-          if (this.recipe.id !== undefined){
-            // CALL API TO CREATE COMPONENTS
-
-            //
-            for (let [key, component]  of this.recipe.components.entries()){
-              this.componentProvider.postComponent(component, this.recipe.id).subscribe(
-                (response) => {
-                  console.log(response);
-                  this.recipe.components[key].recipe = response.recipe;
-                  console.log(this.recipe);
-                }, (err) => {
-                  this.componentError = err;
-                }
-              )
-            }
-            //
-          }
+          this.updateComponents();
         }, (err) => {
               this.recipeError = err;
         }
-      )
+      );
+    }
+    this.updateNutritionalInfoOfRecipe();
+  }
 
+
+  updateComponents(){
+    if (this.recipe.id !== undefined){
+      // CALL API TO CREATE COMPONENTS
+      for (let [key, component]  of this.recipe.components.entries()){
+        this.componentProvider.postComponent(component, this.recipe.id).subscribe(
+          (response) => {
+            console.log(response);
+            this.recipe.components[key].recipe = response.recipe;
+            console.log(this.recipe);
+            this.componentsCount ++;
+            if(this.componentsCount === this.recipe.components.length)
+              this.updateNutritionalInfoOfRecipe();
+          }, (err) => {
+            this.componentError = err;
+          }
+        )
+        this.allComponentsCommitted = true;
+      }
     }
   }
 
+  updateNutritionalInfoOfRecipe(){
+
+    this.recipeProvider.getRecipeById(this.recipe.id).subscribe(
+      (response) => {
+          console.log('GET RECIPE TO UPDATE NUTRITIONAL');
+          console.log(response);
+          this.recipe.energy = response.energy;
+          this.recipe.fat = response.fat;
+          this.recipe.saturated = response.saturated;
+          this.recipe.carbohydrates = response.carbohydrates;
+          this.recipe.sugar = response.sugar;
+          this.recipe.protein = response.protein;
+          this.recipe.salt = response.salt;
+          console.log(this.recipe);
+      }, (err) => {
+        this.recipeNutritionError = err;
+      }
+    )
+  }
 }

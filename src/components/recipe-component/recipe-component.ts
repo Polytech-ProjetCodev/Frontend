@@ -42,7 +42,7 @@ export class RecipeComponentComponent {
     if (this.continue === true){
       this.continue = false;
       this.ingredientProvider.getIngredientByBarcode(this.component.ingredient).subscribe(
-        (ingredient)=> {
+        (ingredient) => {
           this.ingredient = ingredient;
         }, (err) => {
           this.err = err;

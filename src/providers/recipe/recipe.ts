@@ -20,7 +20,7 @@ export class RecipeProvider {
     console.log('Hello IngredientProvider Provider');
   }
 
-  getRecipeById(id: string): Observable<RecipeModel> {
+  getRecipeById(id: number): Observable<RecipeModel> {
     return this.http.get<RecipeModel>(this.recipeUrl + '/' + id + ".json");
   }
 
