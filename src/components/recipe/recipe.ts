@@ -5,6 +5,10 @@ import {BarcodeScanner, BarcodeScannerOptions} from "@ionic-native/barcode-scann
 import {IngredientProvider} from "../../providers/ingredient/ingredient";
 import {RecipeProvider} from "../../providers/recipe/recipe";
 import {RecipeComponentProvider} from "../../providers/recipe-component/recipe-component";
+import {IngredientModel} from "../../app/shared/ingredient.model";
+import {ModalContentPage} from "../recipe-component/recipe-component-modal/modal-content";
+import {ModalController} from "ionic-angular";
+import {RecipeModalContentPage} from "./recipe-modal/recipe-modal-content";
 
 /**
  * Generated class for the RecipeComponent component.
@@ -32,7 +36,7 @@ export class RecipeComponent {
   allComponentsCommitted: boolean = false;
   componentsCount: number = 0;
 
-  constructor(private barcode: BarcodeScanner, private recipeProvider: RecipeProvider, private componentProvider: RecipeComponentProvider) {
+  constructor(private barcode: BarcodeScanner, private recipeProvider: RecipeProvider, private componentProvider: RecipeComponentProvider, public modalCtrl: ModalController) {
     console.log('Hello RecipeComponent Component');
     this.recipe = new RecipeModel("My New Recipe", true);
     //this.recipe.components = [];
@@ -122,5 +126,12 @@ export class RecipeComponent {
         this.recipeNutritionError = err;
       }
     )
+  }
+
+  onViewDetails(referralRecipe: RecipeModel) {
+    if (referralRecipe !== undefined){
+      let modal = this.modalCtrl.create(RecipeModalContentPage, referralRecipe);
+      modal.present();
+    }
   }
 }

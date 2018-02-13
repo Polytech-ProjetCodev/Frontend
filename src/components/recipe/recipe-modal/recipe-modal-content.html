@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Recipe nutritional information
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+<ion-item>
+  <h1>{{recipe.name}}</h1>
+</ion-item>
+
+  <ion-item>
+      <ion-card>
+        <ion-card-header>
+        Per 100g
+        </ion-card-header>
+          <ion-list>
+              <ion-item>
+                <button ion-item>
+                  <ion-icon name="cart" item-start></ion-icon> Protein: {{recipe.protein}}g
+                </button>
+              </ion-item>
+
+              <ion-item>
+                <button ion-item>
+                  <ion-icon name="cart" item-start></ion-icon> Fat: {{recipe.fat}}g
+                </button>
+              </ion-item>
+
+              <ion-item>
+                <button ion-item>
+                  <ion-icon name="cart" item-start></ion-icon> Saturated fat: {{recipe.saturated}}g
+                </button>
+              </ion-item>
+
+              <ion-item>
+                <button ion-item>
+                  <ion-icon name="cart" item-start></ion-icon> Carbohydrates: {{recipe.carbohydrates}}g
+                </button>
+              </ion-item>
+
+              <ion-item>
+                <button ion-item>
+                  <ion-icon name="cart" item-start></ion-icon> Sugar: {{recipe.sugar}}g
+                </button>
+              </ion-item>
+
+              <ion-item>
+                <button ion-item>
+                  <ion-icon name="cart" item-start></ion-icon> Salt: {{recipe.salt}}g
+                </button>
+              </ion-item>
+          </ion-list>
+      </ion-card>
+  </ion-item>
+</ion-content>

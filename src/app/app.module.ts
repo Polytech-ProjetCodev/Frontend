@@ -19,6 +19,7 @@ import { IngredientProvider } from '../providers/ingredient/ingredient';
 import {ModalContentPage} from "../components/recipe-component/recipe-component-modal/modal-content";
 import {RecipeProvider} from "../providers/recipe/recipe";
 import {RecipeComponentProvider} from "../providers/recipe-component/recipe-component";
+import {RecipeModalContentPage} from "../components/recipe/recipe-modal/recipe-modal-content";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {RecipeComponentProvider} from "../providers/recipe-component/recipe-comp
     AboutPage,
     RecipeComponent,
     RecipeComponentComponent,
-    ModalContentPage
+    ModalContentPage,
+    RecipeModalContentPage
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,8 @@ import {RecipeComponentProvider} from "../providers/recipe-component/recipe-comp
     MyApp,
     NewRecipePage,
     AboutPage,
-    ModalContentPage
+    ModalContentPage,
+    RecipeModalContentPage
   ],
   providers: [
     StatusBar,
