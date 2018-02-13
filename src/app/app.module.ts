@@ -11,8 +11,6 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 import { Camera } from '@ionic-native/camera';
 import {NewRecipePage} from "../pages/newRecipe/newRecipe";
-import { RecipeComponentProvider } from '../providers/component/component';
-
 import { HttpClientModule } from '@angular/common/http';
 import {AboutPage} from "../pages/about/about";
 import {RecipeComponentComponent} from "../components/recipe-component/recipe-component";
@@ -20,6 +18,7 @@ import {RecipeComponent} from "../components/recipe/recipe";
 import { IngredientProvider } from '../providers/ingredient/ingredient';
 import {ModalContentPage} from "../components/recipe-component/recipe-component-modal/modal-content";
 import {RecipeProvider} from "../providers/recipe/recipe";
+import {RecipeComponentProvider} from "../providers/recipe-component/recipe-component";
 
 @NgModule({
   declarations: [
@@ -46,12 +45,11 @@ import {RecipeProvider} from "../providers/recipe/recipe";
     StatusBar,
     SplashScreen,
     Camera,
-    RecipeComponentProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     BarcodeScanner,
-    RecipeComponentProvider,
     IngredientProvider,
-    RecipeProvider
+    RecipeProvider,
+    RecipeComponentProvider
   ]
 })
 export class AppModule {}

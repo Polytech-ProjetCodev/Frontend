@@ -4,6 +4,7 @@ import {ComponentModel} from "../../app/shared/component.model";
 import {BarcodeScanner, BarcodeScannerOptions} from "@ionic-native/barcode-scanner";
 import {IngredientProvider} from "../../providers/ingredient/ingredient";
 import {RecipeProvider} from "../../providers/recipe/recipe";
+import {RecipeComponentProvider} from "../../providers/recipe-component/recipe-component";
 
 /**
  * Generated class for the RecipeComponent component.
@@ -24,9 +25,10 @@ export class RecipeComponent {
   //results: {};
   continue = true;
   backRecipe: RecipeModel;
-  err;
+  recipeError;
+  componentError;
 
-  constructor(private barcode: BarcodeScanner, private recipeProvider: RecipeProvider) {
+  constructor(private barcode: BarcodeScanner, private recipeProvider: RecipeProvider, private componentProvider: RecipeComponentProvider) {
     console.log('Hello RecipeComponent Component');
     this.recipe = new RecipeModel("My New Recipe", true);
     //this.recipe.components = [];
@@ -62,11 +64,33 @@ export class RecipeComponent {
     if (this.continue === true){
       this.continue = false;
       this.recipeProvider.postRecipe(this.recipe).subscribe(
-        (response)=> console.log(response),
-        (err) => {
-          this.err = err;
+        (response) => {
+          console.log(response);
+          this.recipe.id = response.id;
+          console.log(this.recipe);
+
+          if (this.recipe.id !== undefined){
+            // CALL API TO CREATE COMPONENTS
+
+            //
+            for (let [key, component]  of this.recipe.components.entries()){
+              this.componentProvider.postComponent(component, this.recipe.id).subscribe(
+                (response) => {
+                  console.log(response);
+                  this.recipe.components[key].recipe = response.recipe;
+                  console.log(this.recipe);
+                }, (err) => {
+                  this.componentError = err;
+                }
+              )
+            }
+            //
+          }
+        }, (err) => {
+              this.recipeError = err;
         }
       )
+
     }
   }
 
