@@ -13,7 +13,7 @@
   </ion-card-content>
   <ion-item>
     <ion-label color="primary" fixed>Quantity</ion-label>
-    <ion-input placeholder="Choose Qty"></ion-input>
+    <ion-input placeholder="Choose Qty" [(ngModel)]="component.quantity"></ion-input>
     <ion-select placeholder="Choose Unit" [(ngModel)]="gender">
       <ion-option value="g">gram</ion-option>
       <ion-option disabled value="tsp">teaspoon (tsp) : 5 ml</ion-option>

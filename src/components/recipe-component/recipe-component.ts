@@ -24,6 +24,8 @@ export class RecipeComponentComponent {
   err;
   continue = true;
 
+  formOptions = ['g', 'tsp', 'tbsp', 'L', 'cL', 'mL'];
+
   text: string;
 
   constructor(public modalCtrl: ModalController, private ingredientProvider: IngredientProvider) {
