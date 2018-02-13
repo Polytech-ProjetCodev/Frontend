@@ -19,11 +19,48 @@
   <h1>{{ingredient.name}}</h1>
 </ion-item>
 
+  <ion-item>
+      <ion-card>
+        <ion-card-header>
+        Per 100g
+        </ion-card-header>
+          <ion-list>
+              <ion-item>
+                <button ion-item>
+                  <ion-icon name="cart" item-start></ion-icon> Protein: {{ingredient.protein_100g}}g
+                </button>
+              </ion-item>
 
+              <ion-item>
+                <button ion-item>
+                  <ion-icon name="cart" item-start></ion-icon> Fat: {{ingredient.fat_100g}}g
+                </button>
+              </ion-item>
 
-  <ion-list>
-    <ion-item>
+              <ion-item>
+                <button ion-item>
+                  <ion-icon name="cart" item-start></ion-icon> Saturated fat: {{ingredient.saturated_fat_100g}}g
+                </button>
+              </ion-item>
 
-    </ion-item>
-  </ion-list>
+              <ion-item>
+                <button ion-item>
+                  <ion-icon name="cart" item-start></ion-icon> Carbohydrates: {{ingredient.carbohydrates_100g}}g
+                </button>
+              </ion-item>
+
+              <ion-item>
+                <button ion-item>
+                  <ion-icon name="cart" item-start></ion-icon> Sugar: {{ingredient.sugar_100g}}g
+                </button>
+              </ion-item>
+
+              <ion-item>
+                <button ion-item>
+                  <ion-icon name="cart" item-start></ion-icon> Salt: {{ingredient.salt_100g}}g
+                </button>
+              </ion-item>
+          </ion-list>
+      </ion-card>
+  </ion-item>
 </ion-content>

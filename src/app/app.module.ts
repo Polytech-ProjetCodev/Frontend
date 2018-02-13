@@ -19,6 +19,7 @@ import {RecipeComponentComponent} from "../components/recipe-component/recipe-co
 import {RecipeComponent} from "../components/recipe/recipe";
 import { IngredientProvider } from '../providers/ingredient/ingredient';
 import {ModalContentPage} from "../components/recipe-component/recipe-component-modal/modal-content";
+import {RecipeProvider} from "../providers/recipe/recipe";
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import {ModalContentPage} from "../components/recipe-component/recipe-component-
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     BarcodeScanner,
     RecipeComponentProvider,
-    IngredientProvider
+    IngredientProvider,
+    RecipeProvider
   ]
 })
 export class AppModule {}

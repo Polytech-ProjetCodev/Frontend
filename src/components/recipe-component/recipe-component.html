@@ -4,7 +4,7 @@
     <ion-avatar item-start *ngIf="ingredient !== undefined">
       <img  src="{{ingredient.image}}">
     </ion-avatar>
-    <h2 *ngIf="ingredient !== undefined">{{ ingredient.name }}</h2>
+    <a (click)="presentModal({'ingredient' : ingredient})"><h2 *ngIf="ingredient !== undefined">{{ ingredient.name }}</h2></a>
   </ion-item>
   <!--{{ingredient | json}}-->
 
@@ -16,11 +16,11 @@
     <ion-input placeholder="Choose Qty"></ion-input>
     <ion-select placeholder="Choose Unit" [(ngModel)]="gender">
       <ion-option value="g">gram</ion-option>
-      <ion-option value="tsp">teaspoon (tsp) : 5 ml</ion-option>
-      <ion-option value="tbsp">tablespoon  (tbsp) : 15 ml</ion-option>
-      <ion-option value="L">liter (L)</ion-option>
-      <ion-option value="cL">centilitre (cL)</ion-option>
-      <ion-option value="mL">milliliter (mL)</ion-option>
+      <ion-option disabled value="tsp">teaspoon (tsp) : 5 ml</ion-option>
+      <ion-option disabled value="tbsp">tablespoon  (tbsp) : 15 ml</ion-option>
+      <ion-option disabled value="L">liter (L)</ion-option>
+      <ion-option disabled value="cL">centilitre (cL)</ion-option>
+      <ion-option disabled value="mL">milliliter (mL)</ion-option>
     </ion-select>
 
   </ion-item>
@@ -43,4 +43,4 @@
   </ion-row>
   <div *ngIf="err !== undefined"> {{err | json}} </div>
 </ion-card>
-
+{{ err | json}}

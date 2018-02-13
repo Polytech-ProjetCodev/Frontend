@@ -29,8 +29,10 @@
   <ion-input type="Text Input" placeholder="Name this recipe" maxlength="255" [(ngModel)]="recipe.name"></ion-input>
 </ion-item>
 
-<button ion-button round>Submit recipe</button>
+<button ion-button round (click)="onSubmitRecipe()">Submit recipe</button>
 
 <ion-fab bottom right>
   <button ion-fab (click)="scanBarcode()"> <ion-icon name="barcode"></ion-icon> </button>
 </ion-fab>
+
+{{err | json}}

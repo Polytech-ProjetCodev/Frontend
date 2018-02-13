@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import {RecipeModel} from "../../app/shared/recipe.model";
 import {ComponentModel} from "../../app/shared/component.model";
 import {BarcodeScanner, BarcodeScannerOptions} from "@ionic-native/barcode-scanner";
+import {IngredientProvider} from "../../providers/ingredient/ingredient";
+import {RecipeProvider} from "../../providers/recipe/recipe";
 
 /**
  * Generated class for the RecipeComponent component.
@@ -20,8 +22,11 @@ export class RecipeComponent {
   options: BarcodeScannerOptions;
   resultsArray: Array<string> = [];
   //results: {};
+  continue = true;
+  backRecipe: RecipeModel;
+  err;
 
-  constructor(private barcode: BarcodeScanner) {
+  constructor(private barcode: BarcodeScanner, private recipeProvider: RecipeProvider) {
     console.log('Hello RecipeComponent Component');
     this.recipe = new RecipeModel("My New Recipe", true);
     //this.recipe.components = [];
@@ -52,4 +57,17 @@ export class RecipeComponent {
   onStarClick() {
     this.recipe.favorite = !this.recipe.favorite;
   }
+
+  onSubmitRecipe() {
+    if (this.continue === true){
+      this.continue = false;
+      this.recipeProvider.postRecipe(this.recipe).subscribe(
+        (response)=> console.log(response),
+        (err) => {
+          this.err = err;
+        }
+      )
+    }
+  }
+
 }

@@ -39,8 +39,6 @@ export class RecipeComponentComponent {
    * Call provider when view is rendered
    */
   ngAfterViewChecked() {
-    console.log("BLOPPPPPP");
-
     if (this.continue === true){
       this.continue = false;
       this.ingredientProvider.getIngredientByBarcode(this.component.ingredient).subscribe(
@@ -54,9 +52,10 @@ export class RecipeComponentComponent {
   }
 
   presentModal(referralIngredient: IngredientModel) {
-    let modal = this.modalCtrl.create(ModalContentPage, referralIngredient);
-    modal.present();
+    if (referralIngredient !== undefined){
+      let modal = this.modalCtrl.create(ModalContentPage, referralIngredient);
+      modal.present();
+    }
   }
-
 }
 
