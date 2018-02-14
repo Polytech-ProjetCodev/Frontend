@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Your recipes</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <div *ngFor="let recipe of recipes">
+      <app-recipe-card
+        [recipe]="recipe"
+        (cardDeleted)="onRecipeCardDeleted($event)">
+      </app-recipe-card>
+    </div>
+  </ion-list>
+  {{ recipeListErr }}
+</ion-content>

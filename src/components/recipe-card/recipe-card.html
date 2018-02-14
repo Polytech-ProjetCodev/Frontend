@@ -1,0 +1,30 @@
+<ion-card>
+  <ion-card-header>
+    <a (click)="presentModal({'recipe' : recipe})"><h2 *ngIf="recipe !== undefined">{{ recipe.name }} @Debug.id : {{ recipe.id }}</h2></a>
+    <button ion-button icon-left clear small  disabled class="green" (click)="onDeleteRecipeCard()">
+      <ion-icon name="nbComponents"></ion-icon>
+      <div>{{ recipe.components.length}} Component(s)</div>
+    </button>
+  </ion-card-header>
+  <!--{{ingredient | json}}-->
+
+  <ion-card-content>
+    <!--<p>{{ rComponent.description }}</p>-->
+    <ion-row>
+      <ion-col>
+        <button [disabled]="recipe === undefined" ion-button icon-left clear small *ngIf="recipe !== undefined" (click)="presentModal({'recipe' : recipe})">
+          <ion-icon name="eye"></ion-icon>
+          <div>View details</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left clear small  class="red" (click)="onDeleteRecipeCard()">
+          <ion-icon name="close"></ion-icon>
+          <div>Delete</div>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card-content>
+  <div *ngIf="err !== undefined"> {{err | json}} </div>
+  {{ err | json}}
+</ion-card>

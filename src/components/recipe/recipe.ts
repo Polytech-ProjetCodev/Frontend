@@ -27,7 +27,7 @@ export class RecipeComponent {
   options: BarcodeScannerOptions;
   resultsArray: Array<string> = [];
   //results: {};
-  continue = true;
+  allowSubmit = true;
   backRecipe: RecipeModel;
   recipeError;
   componentError;
@@ -108,6 +108,7 @@ export class RecipeComponent {
     }
   }
 
+
   updateNutritionalInfoOfRecipe(){
 
     this.recipeProvider.getRecipeById(this.recipe.id).subscribe(
@@ -134,4 +135,5 @@ export class RecipeComponent {
       modal.present();
     }
   }
+
 }

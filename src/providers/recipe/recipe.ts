@@ -24,6 +24,11 @@ export class RecipeProvider {
     return this.http.get<RecipeModel>(this.recipeUrl + '/' + id + ".json");
   }
 
+  getAllRecipes(): Observable<RecipeModel[]> {
+    console.log(this.recipeUrl + '.json');
+    return this.http.get<RecipeModel[]>(this.recipeUrl + '.json');
+  }
+
   postRecipe(recipe: RecipeModel): Observable<RecipeModel> {
     console.log(this.recipeUrl + '.json');
 
@@ -33,5 +38,10 @@ export class RecipeProvider {
     };
 
     return this.http.post<RecipeModel>(this.recipeUrl + '.json', recipeObj);
+  }
+
+
+  deleteRecipeById(id: string): Observable<RecipeModel> {
+    return this.http.delete<RecipeModel>(this.recipeUrl + '/' + id + ".json");
   }
 }
