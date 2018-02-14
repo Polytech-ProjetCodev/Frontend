@@ -1,6 +1,9 @@
 <ion-card>
   <ion-card-header>
-    <a (click)="presentModal({'recipe' : recipe})"><h2 *ngIf="recipe !== undefined">{{ recipe.name }} @Debug.id : {{ recipe.id }}</h2></a>
+    <a (click)="presentModal({'recipe' : recipe})"><h2 *ngIf="recipe !== undefined">
+      <span *ngIf="recipe.favorite"> <ion-icon name="ios-star" color="yellow-star"></ion-icon></span>
+      <span *ngIf="recipe.favorite === false"> <ion-icon name="ios-star-outline" color="yellow-star"></ion-icon></span>
+      {{ recipe.name }} @Debug.id : {{ recipe.id }}</h2></a>
     <button ion-button icon-left clear small  disabled class="green" (click)="onDeleteRecipeCard()">
       <ion-icon name="nbComponents"></ion-icon>
       <div>{{ recipe.components.length}} Component(s)</div>
