@@ -23,7 +23,7 @@ export class RecipeComponent {
   options: BarcodeScannerOptions;
   resultsArray: Array<string> = [];
   //results: {};
-  continue = true;
+  allowSubmit = true;
   backRecipe: RecipeModel;
   recipeError;
   componentError;
@@ -61,8 +61,8 @@ export class RecipeComponent {
   }
 
   onSubmitRecipe() {
-    if (this.continue === true){
-      this.continue = false;
+    if (this.allowSubmit === true){
+      this.allowSubmit = false;
       this.recipeProvider.postRecipe(this.recipe).subscribe(
         (response) => {
           console.log(response);
@@ -92,6 +92,11 @@ export class RecipeComponent {
       )
 
     }
+  }
+
+
+  onUpdateRecipe(){
+
   }
 
 }

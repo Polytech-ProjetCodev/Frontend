@@ -38,8 +38,8 @@ export class RecipeCardComponent {
   // * Call provider when view is rendered
   // */
   //ngAfterViewChecked() {
-  //  if (this.continue === true){
-  //    this.continue = false;
+  //  if (this.allowSubmit === true){
+  //    this.allowSubmit = false;
   //    this.ingredientProvider.getIngredientByBarcode(this.component.ingredient).subscribe(
   //      (ingredient)=> {
   //        this.ingredient = ingredient;
