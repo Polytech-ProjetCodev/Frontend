@@ -42,7 +42,16 @@ export class RecipeListPage {
   }
 
   onRecipeCardDeleted(cardData: {recipe: RecipeModel}) {
-    this.recipes = this.recipes.filter(item => item !== cardData.recipe);
+    //this.recipes = this.recipes.filter(item => item !== cardData.recipe);
+
+      console.log("Delete recipe " + cardData.recipe.id);
+      this.recipeProvider.deleteRecipeById(cardData.recipe.id.toString()).subscribe(
+        (recipe)=> {
+          this.recipes = this.recipes.filter(item => item !== cardData.recipe);
+        }, (err) => {
+          this.recipeListErr = err;
+        }
+      )
     /**
      * @TODO Remove recipe on API with http.delete
      */

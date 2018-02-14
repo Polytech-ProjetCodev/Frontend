@@ -19,7 +19,11 @@
           <div>Delete</div>
         </button>
       </ion-col>
-      <ion-col center text-center>
+      <ion-col>
+        <button ion-button icon-left clear small  disabled class="green" (click)="onDeleteRecipeCard()">
+          <ion-icon name="nbComponents"></ion-icon>
+          <div>{{ recipe.components.length}} Component(s)</div>
+        </button>
       </ion-col>
     </ion-row>
   </ion-card-content>

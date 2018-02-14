@@ -20,7 +20,7 @@ export class RecipeProvider {
     console.log('Hello IngredientProvider Provider');
   }
 
-  getRecipeById(id: string): Observable<RecipeModel> {
+  getRecipeById(id: number): Observable<RecipeModel> {
     return this.http.get<RecipeModel>(this.recipeUrl + '/' + id + ".json");
   }
 
@@ -38,5 +38,10 @@ export class RecipeProvider {
     };
 
     return this.http.post<RecipeModel>(this.recipeUrl + '.json', recipeObj);
+  }
+
+
+  deleteRecipeById(id: string): Observable<RecipeModel> {
+    return this.http.delete<RecipeModel>(this.recipeUrl + '/' + id + ".json");
   }
 }
