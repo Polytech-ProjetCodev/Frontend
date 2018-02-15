@@ -48,6 +48,7 @@ export class LoginPage {
           );
         }, (err) => {
           this.loginError = err;
+          this.storage.set('token', 'blop').then((res) => {this.login(this.user)});
         }
       );
     }
