@@ -1,9 +1,10 @@
 ///<reference path="../../app/shared/recipe.model.ts"/>
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {CONFIG} from "../../config";
 import {RecipeModel} from "../../app/shared/recipe.model";
+import {TOKEN} from "../../token-conf";
 
 /*
   Generated class for the IngredientProvider provider.
@@ -15,6 +16,14 @@ import {RecipeModel} from "../../app/shared/recipe.model";
 export class RecipeProvider {
 
   recipeUrl = CONFIG.api.url() + 'recipe';
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+      'Authorization': 'Token ' + TOKEN.value
+    })
+  };
+
 
   constructor(public http: HttpClient) {
     console.log('Hello IngredientProvider Provider');

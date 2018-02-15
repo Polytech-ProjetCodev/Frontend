@@ -11,7 +11,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 import { Camera } from '@ionic-native/camera';
 import {NewRecipePage} from "../pages/newRecipe/newRecipe";
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AboutPage} from "../pages/about/about";
 import {RecipeComponentComponent} from "../components/recipe-component/recipe-component";
 import {RecipeComponent} from "../components/recipe/recipe";
@@ -22,6 +22,10 @@ import {RecipeComponentProvider} from "../providers/recipe-component/recipe-comp
 import {RecipeModalContentPage} from "../components/recipe/recipe-modal/recipe-modal-content";
 import {RecipeListPage} from "../pages/recipe-list/recipe-list";
 import {RecipeCardComponent} from "../components/recipe-card/recipe-card";
+import {LoginPage} from "../pages/login/login";
+import {IonicStorageModule, Storage} from "@ionic/storage";
+import {AuthProvider} from "../providers/auth/auth";
+import {TokenInterceptor} from "../providers/auth/token-interceptor";
 
 @NgModule({
   declarations: [
@@ -33,12 +37,14 @@ import {RecipeCardComponent} from "../components/recipe-card/recipe-card";
     ModalContentPage,
     RecipeModalContentPage,
     RecipeListPage,
-    RecipeCardComponent
+    RecipeCardComponent,
+    LoginPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
+    IonicStorageModule.forRoot(),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -47,9 +53,15 @@ import {RecipeCardComponent} from "../components/recipe-card/recipe-card";
     AboutPage,
     ModalContentPage,
     RecipeModalContentPage,
-    RecipeListPage
+    RecipeListPage,
+    LoginPage
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
     StatusBar,
     SplashScreen,
     Camera,
@@ -57,7 +69,8 @@ import {RecipeCardComponent} from "../components/recipe-card/recipe-card";
     BarcodeScanner,
     IngredientProvider,
     RecipeProvider,
-    RecipeComponentProvider
+    RecipeComponentProvider,
+    AuthProvider
   ]
 })
 export class AppModule {}

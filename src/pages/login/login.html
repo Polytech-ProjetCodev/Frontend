@@ -7,7 +7,7 @@
 <ion-content padding>
   <ion-item>
     <ion-label floating>Email Address</ion-label>
-    <ion-input type="text" [(ngModel)]="user.email"></ion-input>
+    <ion-input type="text" [(ngModel)]="user.username"></ion-input>
   </ion-item>
 
   <ion-item>
@@ -17,4 +17,5 @@
 
   <button ion-button (click)="login(user)">Login</button>
   <button ion-button color="light" (click)="register(user)">Register</button>
+  {{ authError | json }}
 </ion-content>

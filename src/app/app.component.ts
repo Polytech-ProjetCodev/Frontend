@@ -14,7 +14,7 @@ import {RecipeListPage} from "../pages/recipe-list/recipe-list";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = RecipeListPage;
+  rootPage: any = LoginPage;
 
   pages: Array<{title: string, component: any}>;
 
