@@ -23,9 +23,7 @@ export class AuthProvider {
 
   postUser(user: User): Observable<{token: string}> {
     console.log(this.authUrl + '.json');
-
     let body = {username: user.username, password: user.password};
-
     return this.http.post<{token: string}>(this.authUrl + '.json', body);
   }
 

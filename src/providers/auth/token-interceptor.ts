@@ -17,15 +17,21 @@ export class TokenInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-    console.log('TOKEN : ' + this.storage.get('token'));
+    this.storage.get('token').then((res) => {console.log('TOKEN : ' + res)});
+
+    this.storage.get('token').then((res) => {
+
+    });
 
     return Observable.fromPromise(this.storage.get('token'))
       .mergeMap((token)=> {
-        request = request.clone({
-          setHeaders: {
-            'Authorization': 'Token ' + '54f5064a7c7b7d106ac028c76d266d2783289ed0'
-          }
-        });
+        if (token.length > 15){
+          request = request.clone({
+            setHeaders: {
+              'Authorization': 'Token ' + token
+            }
+          });
+        }
         return next.handle(request);
       })
   }

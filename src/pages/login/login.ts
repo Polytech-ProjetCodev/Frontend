@@ -28,6 +28,7 @@ export class LoginPage {
   tokenAcquired = false;
 
   constructor(private storage: Storage, public navCtrl: NavController, public navParams: NavParams, private authProvider: AuthProvider) {
+    this.storage.set('token', 'blop')
   }
 
   login(user: User) {
@@ -39,9 +40,12 @@ export class LoginPage {
           this.tokenAcquired = true;
           this.user.token = response.token;
           console.log(this.user.token);
-          this.storage.set('token', this.user.token);
-          this.logged = true;
-          this.navCtrl.push(RecipeListPage);
+          this.storage.set('token', this.user.token).then((val) =>
+            {
+              this.logged = true;
+              this.navCtrl.push(RecipeListPage);
+            }
+          );
         }, (err) => {
           this.loginError = err;
         }
