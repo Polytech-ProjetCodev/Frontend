@@ -4,6 +4,7 @@ import {ModalController} from "ionic-angular";
 import {RecipeModel} from "../../app/shared/recipe.model";
 import {RecipeProvider} from "../../providers/recipe/recipe";
 import {ModalContentPage} from "../recipe-component/recipe-component-modal/modal-content";
+import {RecipeModalContentPage} from "../recipe/recipe-modal/recipe-modal-content";
 
 /**
  * Generated class for the CardComponent component.
@@ -50,11 +51,11 @@ export class RecipeCardComponent {
   //  }
   //}
 
-  //presentModal(referralIngredient: IngredientModel) {
-  //  if (referralIngredient !== undefined){
-  //    let modal = this.modalCtrl.create(ModalContentPage, referralIngredient);
-  //    modal.present();
-  //  }
-  //}
+  presentModal(referralIngredient: IngredientModel) {
+    if (referralIngredient !== undefined){
+      let modal = this.modalCtrl.create(RecipeModalContentPage, referralIngredient);
+      modal.present();
+    }
+  }
 }
 

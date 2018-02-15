@@ -9,7 +9,6 @@ import { Observable } from 'rxjs/Observable';
 import {Storage} from "@ionic/storage";
 import "rxjs/add/observable/fromPromise";
 import "rxjs/add/operator/mergeMap";
-import {TOKEN} from "../../token-conf";
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
@@ -24,7 +23,7 @@ export class TokenInterceptor implements HttpInterceptor {
       .mergeMap((token)=> {
         request = request.clone({
           setHeaders: {
-            'Authorization': 'Token ' + token
+            'Authorization': 'Token ' + '54f5064a7c7b7d106ac028c76d266d2783289ed0'
           }
         });
         return next.handle(request);

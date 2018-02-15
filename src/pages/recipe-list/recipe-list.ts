@@ -3,7 +3,6 @@ import { NavController } from 'ionic-angular';
 import { Camera } from "@ionic-native/camera";
 import {RecipeProvider} from "../../providers/recipe/recipe";
 import {RecipeModel} from "../../app/shared/recipe.model";
-import {HttpHeaders} from "@angular/common/http";
 
 @Component({
   selector: 'page-recipe-list',
@@ -17,7 +16,6 @@ export class RecipeListPage {
   recipeListErr;
 
   constructor(public navCtrl: NavController, private recipeProvider: RecipeProvider) {
-
   }
 
   /**
@@ -52,9 +50,6 @@ export class RecipeListPage {
           this.recipeListErr = err;
         }
       )
-    /**
-     * @TODO Remove recipe on API with http.delete
-     */
   }
 
 }

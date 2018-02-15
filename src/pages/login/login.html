@@ -4,9 +4,12 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+  Token: {{ user.token }}
+  TokenAcquired: {{ tokenAcquired }}
+  LoggedIn: {{ logged }}
   <ion-item>
-    <ion-label floating>Email Address</ion-label>
+    <ion-label floating>Username</ion-label>
     <ion-input type="text" [(ngModel)]="user.username"></ion-input>
   </ion-item>
 
@@ -15,7 +18,24 @@
     <ion-input type="password" [(ngModel)]="user.password"></ion-input>
   </ion-item>
 
-  <button ion-button (click)="login(user)">Login</button>
-  <button ion-button color="light" (click)="register(user)">Register</button>
-  {{ authError | json }}
+  <button ion-button color="secondary" (click)="login(user)">Login</button>
+  {{ loginError | json }}
+
+  <ion-item>
+    <ion-label floating>Email address</ion-label>
+    <ion-input type="text" [(ngModel)]="user.email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Username</ion-label>
+    <ion-input type="text" [(ngModel)]="user.username"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Password</ion-label>
+    <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+  </ion-item>
+
+  <button ion-button (click)="register(user)">Register</button>
+  {{ registerError | json }}
 </ion-content>

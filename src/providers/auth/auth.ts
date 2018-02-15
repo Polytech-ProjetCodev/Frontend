@@ -15,6 +15,7 @@ import {TOKEN} from "../../token-conf";
 export class AuthProvider {
 
   authUrl = CONFIG.api.url() + 'api-token-auth';
+  createUrl = CONFIG.api.url() + 'users/create';
 
   constructor(public http: HttpClient) {
     console.log('Hello IngredientProvider Provider');
@@ -26,6 +27,14 @@ export class AuthProvider {
     let body = {username: user.username, password: user.password};
 
     return this.http.post<{token: string}>(this.authUrl + '.json', body);
+  }
+
+  createUser(user: User): Observable<User> {
+    console.log(this.authUrl + '.json');
+
+    let body = {email: user.email, username: user.username, password: user.password};
+
+    return this.http.post<User>(this.createUrl + '.json', body);
   }
 
 }

@@ -21,37 +21,48 @@ export class LoginPage {
 
   user = {} as User;
   userSubmitted = false;
-  authError: string;
+  loginError: string;
+  registerError: string;
   logged = false;
+  userRegistered = false;
+  tokenAcquired = false;
 
   constructor(private storage: Storage, public navCtrl: NavController, public navParams: NavParams, private authProvider: AuthProvider) {
   }
 
-  async login(user: User) {
-    console.log('Lolilol');
-
+  login(user: User) {
     if (this.userSubmitted !== true){
       this.userSubmitted = true;
       this.authProvider.postUser(this.user).subscribe(
         (response) => {
-          console.log(response);
+          console.log("TOKEN : " + response.token.toString());
+          this.tokenAcquired = true;
           this.user.token = response.token;
           console.log(this.user.token);
           this.storage.set('token', this.user.token);
           this.logged = true;
           this.navCtrl.push(RecipeListPage);
         }, (err) => {
-          this.authError = err;
+          this.loginError = err;
         }
       );
     }
-
-
-
   }
 
-  async register(user: User) {
-
+  register(user: User) {
+    if (this.userRegistered !== true){
+      this.userSubmitted = true;
+      this.authProvider.createUser(this.user).subscribe(
+        (response) => {
+          console.log(response);
+          let newUser: User;
+          newUser = response;
+          console.log(response);
+          this.login(newUser);
+        }, (err) => {
+          this.registerError = err + "TOKEN : " + this.storage.get('token');
+        }
+      );
+    }
   }
-
 }

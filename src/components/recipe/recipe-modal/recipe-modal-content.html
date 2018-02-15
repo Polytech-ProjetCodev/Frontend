@@ -19,42 +19,53 @@
   <ion-item>
       <ion-card>
         <ion-card-header>
-        Per 100g
+        For 100g
         </ion-card-header>
           <ion-list>
+
+            <ion-item>
+              <button ion-item>
+                <ion-icon name="cart" item-start></ion-icon> Energy: {{ energy | number : '1.2-2'}} kJ
+                <ion-img height="30" width="30" [src]="energyColor"></ion-img>
+              </button>
+            </ion-item>
+
               <ion-item>
                 <button ion-item>
-                  <ion-icon name="cart" item-start></ion-icon> Protein: {{recipe.protein}}g
+                  <ion-icon name="cart" item-start></ion-icon> Protein: {{ recipe.protein / totalQuantity * 100 | number : '1.2-2'}}g
                 </button>
               </ion-item>
 
               <ion-item>
                 <button ion-item>
-                  <ion-icon name="cart" item-start></ion-icon> Fat: {{recipe.fat}}g
+                  <ion-icon name="cart" item-start></ion-icon> Fat: {{recipe.fat / totalQuantity * 100 | number : '1.2-2'}}g
                 </button>
               </ion-item>
 
               <ion-item>
                 <button ion-item>
-                  <ion-icon name="cart" item-start></ion-icon> Saturated fat: {{recipe.saturated}}g
+                  <ion-icon name="cart" item-start></ion-icon> Saturated fat: {{saturatedFat | number : '1.2-2'}}g
+                  <ion-img height="30" width="30" [src]="saturatedFatColor"></ion-img>
                 </button>
               </ion-item>
 
               <ion-item>
                 <button ion-item>
-                  <ion-icon name="cart" item-start></ion-icon> Carbohydrates: {{recipe.carbohydrates}}g
+                  <ion-icon name="cart" item-start></ion-icon> Carbohydrates: {{recipe.carbohydrates / totalQuantity * 100 | number : '1.2-2'}}g
                 </button>
               </ion-item>
 
               <ion-item>
                 <button ion-item>
-                  <ion-icon name="cart" item-start></ion-icon> Sugar: {{recipe.sugar}}g
+                  <ion-icon name="cart" item-start></ion-icon> Sugar: {{sugar | number : '1.2-2'}}g
+                  <ion-img height="30" width="30" [src]="sugarColor"></ion-img>
                 </button>
               </ion-item>
 
               <ion-item>
                 <button ion-item>
-                  <ion-icon name="cart" item-start></ion-icon> Salt: {{recipe.salt}}g
+                  <ion-icon name="cart" [color]="saltColor" item-start></ion-icon>Salt: {{salt | number : '1.2-2'ionic cordova run ios}}g
+                  <ion-img height="30" width="30" [src]="saltColor"></ion-img>
                 </button>
               </ion-item>
           </ion-list>
