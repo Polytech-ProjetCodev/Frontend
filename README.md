@@ -7,3 +7,7 @@ App is launched on `http://localhost:8100`
 
 
 ## Notes
+
+
+## Confidentiality rules
+No content stored after camera scan
