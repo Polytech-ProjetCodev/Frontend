@@ -14,7 +14,6 @@ import {NewRecipePage} from "../pages/newRecipe/newRecipe";
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AboutPage} from "../pages/about/about";
 import {RecipeComponentComponent} from "../components/recipe-component/recipe-component";
-import {RecipeComponent} from "../components/recipe/recipe";
 import { IngredientProvider } from '../providers/ingredient/ingredient';
 import {ModalContentPage} from "../components/recipe-component/recipe-component-modal/modal-content";
 import {RecipeProvider} from "../providers/recipe/recipe";
@@ -26,6 +25,7 @@ import {LoginPage} from "../pages/login/login";
 import {IonicStorageModule, Storage} from "@ionic/storage";
 import {AuthProvider} from "../providers/auth/auth";
 import {TokenInterceptor} from "../providers/auth/token-interceptor";
+import {RecipeComponent} from "../components/recipe/recipe";
 
 @NgModule({
   declarations: [

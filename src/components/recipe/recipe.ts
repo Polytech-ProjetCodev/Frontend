@@ -35,12 +35,13 @@ export class RecipeComponent {
   recipeSubmitted: boolean = false;
   allComponentsCommitted: boolean = false;
   componentsCount: number = 0;
+  allowViewDetails = false;
 
   constructor(private barcode: BarcodeScanner, private recipeProvider: RecipeProvider, private componentProvider: RecipeComponentProvider, public modalCtrl: ModalController) {
     console.log('Hello RecipeComponent Component');
     this.recipe = new RecipeModel("My New Recipe", true);
     //this.recipe.components = [];
-    this.recipe.components = [new ComponentModel("3222110003925", 100, "1cc", 1)];
+    //this.recipe.components = [new ComponentModel("3222110003925", 100, "1cc", 1)];
   }
 
   /**
@@ -123,6 +124,7 @@ export class RecipeComponent {
           this.recipe.protein = response.protein;
           this.recipe.salt = response.salt;
           console.log(this.recipe);
+          this.allowViewDetails = true;
       }, (err) => {
         this.recipeNutritionError = err;
       }

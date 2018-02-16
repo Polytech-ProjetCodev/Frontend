@@ -1,19 +1,11 @@
 import { NgModule } from '@angular/core';
 import { AboutComponent } from './about/about';
-import { RecipeComponent } from './recipe/recipe';
+
 @NgModule({
 	declarations: [
-    AboutComponent,
-    RecipeComponent,
-    RecipeComponent,
-    RecipeComponent,
-    RecipeComponent],
+    AboutComponent],
 	imports: [],
 	exports: [
-    AboutComponent,
-    RecipeComponent,
-    RecipeComponent,
-    RecipeComponent,
-    RecipeComponent]
+    AboutComponent]
 })
 export class ComponentsModule {}

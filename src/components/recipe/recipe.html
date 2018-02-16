@@ -30,13 +30,13 @@
 </ion-item>
 
 <button ion-button round (click)="onSubmitRecipe()" *ngIf="!recipeSubmitted">Submit recipe</button>
-<button ion-button round (click)="onUpdateRecipe()" *ngIf="recipeSubmitted">Update recipe</button>
-<button ion-button round color="secondary" (click)="onViewDetails({'recipe' : recipe})" *ngIf="recipeSubmitted">View details</button>
+<button ion-button round disabled (click)="onUpdateRecipe()" *ngIf="recipeSubmitted">Update recipe</button>
+<button ion-button round color="secondary" [disabled]="!allowViewDetails" (click)="onViewDetails({'recipe' : recipe})" *ngIf="recipeSubmitted">View details</button>
 
 <ion-fab bottom right>
   <button ion-fab (click)="scanBarcode()"> <ion-icon name="barcode"></ion-icon> </button>
 </ion-fab>
 
-{{recipeError | json}}
+<!--{{recipeError | json}}
 {{componentError | json}}
-{{recipe | json}}
+{{recipe | json}}-->

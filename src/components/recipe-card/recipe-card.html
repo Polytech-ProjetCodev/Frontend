@@ -3,16 +3,14 @@
     <a (click)="presentModal({'recipe' : recipe})"><h2 *ngIf="recipe !== undefined">
       <span *ngIf="recipe.favorite"> <ion-icon name="ios-star" color="yellow-star"></ion-icon></span>
       <span *ngIf="recipe.favorite === false"> <ion-icon name="ios-star-outline" color="yellow-star"></ion-icon></span>
-      {{ recipe.name }} @Debug.id : {{ recipe.id }}</h2></a>
+      {{ recipe.name }} <!--@Debug.id : {{ recipe.id }}--></h2></a>
     <button ion-button icon-left clear small  disabled class="green" (click)="onDeleteRecipeCard()">
       <ion-icon name="nbComponents"></ion-icon>
       <div>{{ recipe.components.length}} Component(s)</div>
     </button>
   </ion-card-header>
-  <!--{{ingredient | json}}-->
 
   <ion-card-content>
-    <!--<p>{{ rComponent.description }}</p>-->
     <ion-row>
       <ion-col>
         <button [disabled]="recipe === undefined" ion-button icon-left clear small *ngIf="recipe !== undefined" (click)="presentModal({'recipe' : recipe})">
